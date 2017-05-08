@@ -2,12 +2,12 @@
 
 one:
   username: MyString
-  password: MyString
+  password_digest: <%= BCrypt::Password.create('secret') %>
   usertype: MyString
   watchlist: MyString
 
 two:
   username: MyString
-  password: MyString
+  password_digest: <%= BCrypt::Password.create('secret') %>
   usertype: MyString
   watchlist: MyString
