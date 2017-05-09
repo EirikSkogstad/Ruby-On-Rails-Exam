@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  get 'my_page/method'
 
-  get 'filter_page/method'
+  # http://stackoverflow.com/questions/4479233/static-pages-in-ruby-on-rails?rq=1
 
-  get 'front_page/method'
+  root 'pages#front_page'
 
-  root 'front_page#method'
+  controller :pages do
+    get :front_page
+    get :filter_page
+  end
 
   resources :users
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
