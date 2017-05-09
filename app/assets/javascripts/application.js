@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
-//= require search_autocomplete
+//= require search_movie
 //= require_tree .
