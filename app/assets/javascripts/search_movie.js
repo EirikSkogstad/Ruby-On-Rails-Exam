@@ -143,10 +143,17 @@ function ajaxAutoComplete(options) {
             }
         });
 
-        // $(document).click(function (event) { // close ul if clicked outside
-        //     if (!$(event.target).closest($autocomplete).length) {
-        //         $autocomplete.empty();
-        //     }
-        // });
+        $(document).click(function(event) { // close ul if clicked outside
+            $searchForm = $('nav #search-form');
+            // if (!$(event.target).closest($searchForm).length) {
+            if (!$(event.target).closest('nav').length) {
+                $autocomplete.empty();
+                if ($searchForm.css('display') !== 'none') {
+                    console.log($searchForm.css('display'));
+                    $('#brand, #menu').show();
+                    $searchForm.hide();
+                }
+            }
+        });
     }
 }
