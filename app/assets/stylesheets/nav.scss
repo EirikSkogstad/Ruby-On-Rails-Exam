@@ -1,6 +1,29 @@
 // Place all the styles related to the Nav controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$accentBlue: #03a9f4;
 div nav {
-  background-color: #607D8B;
+    background-color: #607D8B;
+}
+.modal-content input[type="text"]:focus:not([readonly]) + label,
+.modal-content input[type="password"]:focus:not([readonly]) + label {
+    color: $accentBlue;
+}
+.modal-content input[type="text"]:focus:not([readonly]),
+.modal-content input[type="password"]:focus:not([readonly]) {
+    border-bottom: 1px solid $accentBlue;
+    box-shadow: 0 1px 0 0 $accentBlue;
+}
+.accent {
+    color: $accentBlue !important;
+}
+.modal.small {
+    width: 20%;
+    min-width: 320px;
+}
+div.modal, div.modal div.modal-footer {
+  background-color: #455a64;
+}
+div.modal div * {
+  color: #ffffff;
 }
