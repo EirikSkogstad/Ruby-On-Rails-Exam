@@ -1,0 +1,28 @@
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <div id="brand">
+        <%= link_to root_path, :class => 'brand-logo waves-effect waves-light' do %>
+            <i class="material-icons md-36">movie</i>RMDB
+        <% end %>
+      </div>
+      <div id="search-form" style="display: none;">
+        <form>
+          <div class="input-field">
+            <input id="search" type="search" autocomplete="off">
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+      <ul id="menu" class="right">
+        <li id="toggle-search">
+          <a class="waves-effect waves-light"><i class="material-icons">search</i></a>
+        </li>
+        <li>
+          <a class="waves-effect waves-light"><i class="material-icons">person</i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
