@@ -58,3 +58,5 @@ gem 'http'
 gem 'materialize-sass'
 
 gem 'material_icons'
+
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
