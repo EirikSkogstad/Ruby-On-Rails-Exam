@@ -8,10 +8,12 @@
   </head>
 
   <body>
+    <!-- Include nav on every page -->
     <%= render 'nav/nav' %>
     <div class="container">
         <%= yield %>
     </div>
+    <!-- Load JS after HTML -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

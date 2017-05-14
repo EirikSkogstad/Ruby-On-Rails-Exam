@@ -1,14 +1,17 @@
-/**
- * Created by Andreas on 09.05.2017.
- */
 // http://stackoverflow.com/a/42757285 - Modified
+// Sends AJAX to url after x ms after keyup.
 function ajaxAutoComplete(options) {
 
     var defaults = {
+        // Listen on HTML input
         inputId: null,
+        // Send request to url
         ajaxUrl: false,
+        // HTTP method
         method: 'GET',
+        // Data to send
         data: {},
+        // Minimum text length
         minLength: 3
     };
 
@@ -127,6 +130,7 @@ function ajaxAutoComplete(options) {
                             var resultHtml = [];
                             if (!$.isEmptyObject(data)) { // (or other) check for empty result
                                 $.each(data, function(i, movie) {
+                                    // Push HTML formatted results from API to returnable array, with link to movie specific page
                                     if (movie.Poster == "N/A") {
                                         resultHtml.push('<a href="/movie/' + movie.imdbID + '"><li class="collection-item"><h5>' + movie.Title + ' (' + movie.Year + ')</h5></li></a>');
                                     } else {
