@@ -2,12 +2,22 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# Initialize materialize modal
 $('#login-modal').modal()
+$('#logout-modal').modal()
+
+# Open login modal
 $('#login').click (e) ->
   e.preventDefault()
   $('#login-modal').modal('open')
   return
 
+$('#logout').click (e) ->
+  e.preventDefault()
+  $('#logout-modal').modal('open')
+  return
+
+# Show searchbar
 $('#toggle-search').click (e) ->
   e.preventDefault()
   $('#brand, #menu').hide()

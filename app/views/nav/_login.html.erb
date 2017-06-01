@@ -1,17 +1,25 @@
 <div id="login-modal" class="modal small">
   <div class="modal-content">
-    <h4>Login</h4>
-    <div class="input-field col s12">
-      <input id="username" type="text" class="validate">
-      <label for="username">Username</label>
-    </div>
-    <div class="input-field col s12">
-      <input id="password" type="password" class="validate">
-      <label for="password">Password</label>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <a class="modal-action modal-close waves-effect waves-light btn-flat accent">Login</a>
-    <a class="modal-action modal-close waves-effect waves-light btn-flat">Cancel</a>
+
+    <%= form_tag(create_session_path) do %>
+        <fieldset>
+          <legend>Login</legend>
+
+          <div class="input-field col s12">
+            <%= label_tag :name, 'Name:' %>
+            <%= text_field_tag :name, params[:name] %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= label_tag :password, 'Password:' %>
+            <%= password_field_tag :password, params[:password] %>
+          </div>
+
+          <div>
+            <%= submit_tag "Login", {class: "modal-action modal-close waves-effect waves-light btn-flat"} %>
+          </div>
+        </fieldset>
+    <% end %>
+
   </div>
 </div>
