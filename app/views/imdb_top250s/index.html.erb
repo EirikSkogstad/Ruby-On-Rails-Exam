@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>IMDB Top 250</h1>
+
+<table class="bordered">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @imdbTop250.each do |imdbTop250| %>
+      <tr>
+        <td><%= imdbTop250.imdbID %></td>
+        <td><%= imdbTop250.title %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
