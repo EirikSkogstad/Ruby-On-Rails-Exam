@@ -1,0 +1,13 @@
+<h1>My profile</h1>
+
+<br>
+<h2>Watchlist</h2>
+<% if @movies.nil? %>
+    <p>No movies were found.</p>
+<% else %>
+
+    <% @movies.each do |movie| %>
+        <p>MovieID: <%= movie.movie_id %></p>
+    <% end %>
+
+<% end %>
