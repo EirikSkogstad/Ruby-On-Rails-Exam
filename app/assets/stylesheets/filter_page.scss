@@ -1,0 +1,22 @@
+// Not Working
+.row:nth-child(even){
+  margin-left: 75px;
+  margin-right: -100px;
+}
+
+// Not Working
+.btn{
+  text-transform: capitalize;
+}
+
+// Working. Used to see the rows for development.
+.row{
+  background: red;
+}
+
+
+// Working
+#big-button{
+  left: 150px;
+  width: 300px;
+}
