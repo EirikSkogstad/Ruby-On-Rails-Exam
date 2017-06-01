@@ -1,4 +1,5 @@
 <%= render 'nav/login' %>
+<%= render 'nav/logout' %>
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
@@ -20,9 +21,15 @@
         <li id="toggle-search">
           <a class="waves-effect waves-light"><i class="material-icons">search</i></a>
         </li>
-        <li id="login">
-          <a class="waves-effect waves-light"><i class="material-icons">person</i></a>
-        </li>
+        <% if session[:user_id].nil? %>
+            <li id="login">
+              <a class="waves-effect waves-light"><i class="material-icons">person</i></a>
+            </li>
+        <% else %>
+            <li id="logout">
+              <a class="waves-effect waves-light">Logout</a>
+            </li>
+        <% end %>
       </ul>
     </div>
   </nav>

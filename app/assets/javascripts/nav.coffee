@@ -4,10 +4,17 @@
 
 # Initialize materialize modal
 $('#login-modal').modal()
+$('#logout-modal').modal()
+
 # Open login modal
 $('#login').click (e) ->
   e.preventDefault()
   $('#login-modal').modal('open')
+  return
+
+$('#logout').click (e) ->
+  e.preventDefault()
+  $('#logout-modal').modal('open')
   return
 
 # Show searchbar
