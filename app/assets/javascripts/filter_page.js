@@ -1,8 +1,8 @@
-filters = [];
+var filters = [];
 
 //On buttonclick add the category to the filters-list
 
-$('.btn').click(function() {
+$('.btn-genre').click(function() {
     //Either do btn.id or btn.text.toLowerCase(). Whatever is best
     //var btn = btn.id
     //if(filters.contains(btn){
@@ -10,6 +10,14 @@ $('.btn').click(function() {
     // } else{
     //    filters.push(btn)
     // }
+    var id = $(this).attr('id');
+    var filterExistsOnIndex = filters.indexOf(id);
+    if (filterExistsOnIndex > -1) {
+        filters.pop(filterExistsOnIndex);
+    } else {
+        filters.push(id);
+    }
+    console.log(filters);
 
     $(this).toggleClass('blue-grey darken-3 blue-grey');
 });
