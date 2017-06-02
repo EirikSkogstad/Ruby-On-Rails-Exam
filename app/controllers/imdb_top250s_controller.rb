@@ -1,33 +1,36 @@
 class ImdbTop250sController < ApplicationController
 
-  # GET /imdbTop250
-  # GET /imdbTop250.json
+  # GET /imdb_top250s
+  # GET /imdb_top250s.json
   def index
     @imdbTop250 = ImdbTop250.all
   end
 
-  # GET /imdbTop250/1
-  # GET /imdbTop250/1.json
+  # GET /imdb_top250s/1
+  # GET /imdb_top250s/1.json
   def show
   end
 
-  # POST /imdbTop250
-  # POST /imdbTop250.json
+  # POST /imdb_top250s
+  # POST /imdb_top250s.json
   def create
     @imdbTop250 = ImdbTop250.new(user_params)
 
     respond_to do |format|
       if @imdbTop250.save
-        format.html { redirect_to @imdbTop250, notice: '@imdbTop250 was successfully created.' }
+        format.html { redirect_to @imdbTop250, notice: 'imdbTop250 was successfully created.' }
         format.json { render :show, status: :created, location: @imdbTop250 }
-      else
-        format.html { render :new }
-        format.json { render json: @imdbTop250.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def user_params
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_imdbTop250
+    @imdbTop250 = ImdbTop250.find(params[:id])
+  end
+
+  def imdbTop250_params
     params.permit(:imdbID, :title)
   end
 end

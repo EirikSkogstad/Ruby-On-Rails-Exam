@@ -1,0 +1,1 @@
+json.partial! "imdb_top250s/imdb_top250", imdbTop250: @imdbTop250
