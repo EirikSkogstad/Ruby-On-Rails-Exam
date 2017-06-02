@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # get 'movie/index'
   get 'movie/:imdb' => 'movie#index'
-
+  post 'movie/:imdb' => 'movie#add'
   get 'profile/index', to: 'profile#index', as: 'profile'
   get 'error_pages/user_not_logged_in', to: 'error_pages#user_not_logged_in', as: 'user_not_logged_in'
 

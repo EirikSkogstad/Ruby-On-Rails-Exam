@@ -2,12 +2,14 @@
 
 <br>
 <h2>Watchlist</h2>
-<% if @movies.nil? %>
+<% if @movie_json.nil? %>
     <p>No movies were found.</p>
 <% else %>
 
-    <% @movies.each do |movie| %>
-        <p>MovieID: <%= movie.movie_id %></p>
+    <% @movie_json.each do |json| %>
+        <p><%= json.to_s %></p>
+        <p><%= json["Title"] %></p>
+        <p><%= json["Year"] %></p>
     <% end %>
 
 <% end %>

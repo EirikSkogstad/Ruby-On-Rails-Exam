@@ -1,3 +1,11 @@
 <!-- Render partial details -->
 <%= render 'details' %>
-<%= button_to 'Add to watchlist', :method=>'add_to_watchlist'%>
+
+<div class="container">
+  <% if session[:user_id].nil? %>
+      <p>Please log in to add movie to your watchlist! </p>
+      <p> Click <%= link_to 'here', new_user_path %> if you don't have a user yet!</p>
+  <% else %>
+      <%= button_to 'Add to watchlist', :method => :post %>
+  <% end %>
+</div>
