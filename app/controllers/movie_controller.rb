@@ -10,7 +10,7 @@ class MovieController < ApplicationController
     json = get_json_from_id(params[:imdb])
 
     # TODO check if movies already exists in watchlist.
-    @watchlist = Watchlist.new(username: session[:user_id], movie_data: json)
+    @watchlist = Watchlist.new(username: session[:user_id], movie_data: json.to_json)
     @watchlist.save
 
     redirect_to front_page_path

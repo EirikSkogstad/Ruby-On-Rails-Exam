@@ -13,6 +13,6 @@ class ProfileController < ApplicationController
   def read_movies
     @movie_json = []
     watchlist = Watchlist.where(username: session[:user_id])
-    @movie_json = watchlist.map { |item| item.movie_data }
+    @movie_json = watchlist.map { |item| JSON.parse(item.movie_data) }
   end
 end
