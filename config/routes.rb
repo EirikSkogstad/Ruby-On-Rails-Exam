@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   get 'session/logout', to: 'sessions#logout', as: 'logout_session'
   post 'session/create', to: 'sessions#create', as: 'create_session'
-  # http://stackoverflow.com/questions/4479233/static-pages-in-ruby-on-rails?rq=1
+
+  get 'imdb_top250/:id' => 'imdb_top_250s#show'
 
   root 'pages#front_page'
 
