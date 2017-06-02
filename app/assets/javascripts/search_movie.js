@@ -9,6 +9,8 @@ function ajaxAutoComplete(options) {
         ajaxUrl: false,
         // HTTP method
         method: 'GET',
+        // data type
+        dataType: 'json',
         // Data to send
         data: {},
         // Minimum text length
@@ -113,6 +115,7 @@ function ajaxAutoComplete(options) {
             }
 
             var val = $input.val().toLowerCase();
+            options.data.s = $input.val().toLowerCase();
             // $autocomplete.empty();
 
             if (val.length > options.minLength) {
@@ -123,8 +126,8 @@ function ajaxAutoComplete(options) {
                     request = $.ajax({
                         type: options.method,
                         url: options.ajaxUrl,
-                        dataType: 'json',
-                        data: {s: val},
+                        dataType: options.dataType,
+                        data: options.data,
                         success: function (json) {
                             data = json.Search;
                             var resultHtml = [];

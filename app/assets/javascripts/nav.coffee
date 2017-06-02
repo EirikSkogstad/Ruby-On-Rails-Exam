@@ -28,3 +28,4 @@ $('#toggle-search').click (e) ->
 ajaxAutoComplete
   inputId: '#search'
   ajaxUrl: 'http://www.omdbapi.com/'
+  data: { apikey:'ca17ed8a' }
