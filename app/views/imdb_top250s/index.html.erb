@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>IMDB Top 250</h1>
-<%= @imdbTop250.inspect  %>
+<%= @imdb_top250.inspect  %>
 <table class="bordered">
   <thead>
   <tr>
@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-  <% @imdbTop250.each do |imdbTop250| %>
+  <% @imdb_top250.each do |imdbTop250| %>
       <tr>
         <td><%= imdbTop250.imdbID %></td>
         <td><%= imdbTop250.title %></td>
