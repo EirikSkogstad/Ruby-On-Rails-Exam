@@ -1,12 +1,12 @@
 <!-- Prints movie details from movie_controller -->
 <div id="movie" class="row">
   <div class="col s12">
-    <h1 class="title center-align"><%= @movie["Title"] + ' (' + @movie['Year'] + ')'%></h1>
+    <h1 id="title" class="title center-align"><%= @movie["Title"] + ' (' + @movie['Year'] + ')'%></h1>
     <div class="col m4">
       <img class="image" src="<%= @movie["Poster"] %>" alt="">
       <% if session[:username].nil? %>
-          <p>Please log in to add movie to your watchlist! </p>
-          <p> Click <%= link_to 'here', new_user_path %> if you don't have a user yet!</p>
+          <p id="description">Please log in to add movie to your watchlist! </p>
+          <p id="description"> Click <%= link_to 'here', new_user_path %> if you don't have a user yet!</p>
       <% else %>
           <%= button_to 'Add to watchlist', :method => :post %>
       <% end %>
@@ -14,10 +14,10 @@
 
     <div class="col m8">
       <h4><i class="material-icons yellow-text">star_rate</i><%= @movie['imdbRating'] %>/10</h4>
-      <h4>Duration: </h4><p><%= @movie['Runtime'] %></p>
-      <h4>Genre: </h4><p><%= @movie['Genre'] %></p>
-      <h4>Starring: </h4><p><%= @movie['Actors'] %></p>
-      <h4>Plot: </h4><p><%= @movie['Plot'] %></p>
+      <h4>Duration: </h4><p id="description"><%= @movie['Runtime'] %></p>
+      <h4>Genre: </h4><p id="description"><%= @movie['Genre'] %></p>
+      <h4>Starring: </h4><p id="description"><%= @movie['Actors'] %></p>
+      <h4>Plot: </h4><p id="description"><%= @movie['Plot'] %></p>
     </div>
   </div>
 </div>
