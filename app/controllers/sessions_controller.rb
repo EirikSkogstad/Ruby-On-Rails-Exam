@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
       redirect_to front_page_path
     else
+      flash[:notice] = 'Wrong username or password. Please try again'
       redirect_to new_user_path
     end
   end
