@@ -1,0 +1,20 @@
+<div id="movie-tiles" class="row">
+  <% movie_ids = []
+     index = 1
+     random_movies(12).each do |movie|
+       if index % 4 == 1 %>
+          <div class="row">
+       <% end %>
+        <div id="<%= movie['imdbID'] %>" class="col s3 movie-tile">
+        </div>
+     <% movie_ids << movie['imdbID']
+        if index % 4 == 0 %>
+           </div>
+     <% end
+       index += 1
+  end %>
+</div>
+<script>
+    // Not exactly optimal
+    var getMovieDetailsFor = <%= movie_ids %>;
+</script>

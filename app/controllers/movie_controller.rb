@@ -1,6 +1,7 @@
 class MovieController < ApplicationController
   require 'http'
 
+
   def index
     @movie = get_json_from_id params[:imdb]
   end
@@ -16,11 +17,10 @@ class MovieController < ApplicationController
     redirect_to front_page_path
   end
 
-  private
   def get_json_from_id(id)
     # Send a HTTP GET with IMDB ID to external movie API and receive the movie in JSON
     response = HTTP.get('http://www.omdbapi.com/', :params => {i: id, plot: 'full', apikey: 'ca17ed8a'})
     # Parse JSON to object
-    return JSON.parse(response)
+    JSON.parse(response)
   end
 end
