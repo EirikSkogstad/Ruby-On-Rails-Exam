@@ -48,9 +48,11 @@ $('#movie-tiles').on('click', '.btn-watchlist', function(e) {
     var method = $(this).data('is-in-watchlist') ? 'DELETE' : 'POST' ;
     var imdbId = $(this).closest('.movie-tile').attr('id');
     var url = (($(this).data('is-in-watchlist')) ? '/profile/' : '/movie/') + imdbId;
+    var token = $('[name="authenticity_token"]').val();
     $.ajax({
         url: url,
         type: method,
+        data: {authenticity_token: token},
         success: function(data) {
             console.log(data);
         }

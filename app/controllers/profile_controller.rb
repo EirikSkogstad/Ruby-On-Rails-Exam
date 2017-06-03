@@ -9,8 +9,14 @@ class ProfileController < ApplicationController
 
   def delete
     imdb_id = params[:imdb_id]
-    Watchlist.find_by(imdb_id: imdb_id).destroy!
-    redirect_to profile_path
+    respond_to do |format|
+      if Watchlist.find_by(imdb_id: imdb_id).destroy!
+        format.html { redirect_to profile_path }
+        format.json { render :json => {deleted: true} }
+      else
+        format.json { render :json => {deleted: false} }
+      end
+    end
   end
 
   private
