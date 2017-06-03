@@ -2,7 +2,7 @@
 <%= render 'details' %>
 
 <div class="container">
-  <% if session[:user_id].nil? %>
+  <% if session[:username].nil? %>
       <p>Please log in to add movie to your watchlist! </p>
       <p> Click <%= link_to 'here', new_user_path %> if you don't have a user yet!</p>
   <% else %>

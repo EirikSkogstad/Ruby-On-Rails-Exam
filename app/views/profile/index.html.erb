@@ -2,14 +2,14 @@
 
 <br>
 <h2>Watchlist</h2>
-<% if @movie_json.empty? %>
+<% if @movie_map.empty? %>
     <p>No movies were found.</p>
 <% else %>
 
-    <% @movie_json.each do |json| %>
-        <p><%= json.to_s %></p>
-        <p><%= json["Title"] %></p>
-        <p><%= json["Year"] %></p>
+    <% @movie_map.each do |imdb_id, json| %>
+        <p><%= json['Title'] %></p>
+        <p><%= json['Year'] %></p>
+        <%= link_to 'Remove', delete_path(:imdb_id => imdb_id),controller: 'watchlist', :method => :delete %>
     <% end %>
 
 <% end %>

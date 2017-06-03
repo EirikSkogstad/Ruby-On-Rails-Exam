@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   # get 'movie/index'
   get 'movie/:imdb' => 'movie#index'
   post 'movie/:imdb' => 'movie#add'
+
   get 'profile/index', to: 'profile#index', as: 'profile'
+  delete 'profile/:imdb_id', to: 'profile#delete', as: 'delete'
+
   get 'error_pages/user_not_logged_in', to: 'error_pages#user_not_logged_in', as: 'user_not_logged_in'
 
   get 'session/logout', to: 'sessions#logout', as: 'logout_session'

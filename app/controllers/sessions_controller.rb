@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:name].downcase!)
     if user and user.authenticate(params[:password])
-      session[:user_id] = user.id
+      session[:username] = user.id
 
       redirect_to front_page_path
     else
@@ -23,12 +23,12 @@ class SessionsController < ApplicationController
 
   # Create session
   def login
-    # session[:user_id] = user.id
+    # session[:username] = user.id
   end
 
   # Destroy session
   def logout
-    session[:user_id] = nil
+    session[:username] = nil
     redirect_to front_page_path
   end
 end
