@@ -1,5 +1,5 @@
 class WatchlistController < ApplicationController
   def new
-    Watchlist.new(params[:user_id])
+    Watchlist.new(params[:username])
   end
 end
