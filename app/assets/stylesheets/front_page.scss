@@ -8,4 +8,6 @@ h3{
   margin-top: 0 !important;
   align-self: center;
 }
-.card {}
+#movie-tiles > .row:nth-child(2n+1) {
+  margin: 0;
+}
