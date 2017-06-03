@@ -32,4 +32,10 @@ class SessionsController < ApplicationController
     session[:username] = nil
     redirect_to front_page_path
   end
+
+  def is_user_admin
+    user = User.find(username: session[:username])
+
+    return user.is_admin
+  end
 end
