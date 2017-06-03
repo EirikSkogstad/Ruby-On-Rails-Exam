@@ -1,16 +1,26 @@
 
 
 getMovieDetails = function(movieIds) {
-    console.log(movieIds);
     $.each(movieIds, function(i, id) {
-        $.getJSON('http://www.omdbapi.com/', {i: id, apikey: 'ca17ed8a'}, function (json, textStatus) {
+        $.getJSON('/movie/' + id, function (json, textStatus) {
+            var watchlist = {
+                exist: json.in_watchlist,
+                title: (json.in_watchlist) ? 'Remove from watchlist' : 'Add to watchlist',
+                color: ((json.in_watchlist) ? 'red' : 'green'),
+                icon: ((json.in_watchlist) ? 'remove' : 'add')
+            };
             var plotLength = 150;
             var moviePlot = (json.Plot.length > plotLength) ? json.Plot.slice(0, plotLength) + '...' : json.Plot;
+
             $('#' + id).html('<div class="card hoverable">' +
                 '<div class="card-image"><a href="/movie/' + json.imdbID + '"><img src="' + json.Poster + '"></a>' +
-                '<a title="Add to watchlist" class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">playlist_add</i></a></div>' +
+                '<a data-is-in-watchlist="' + watchlist.exist + '" title="' +
+                watchlist.title + '" class="btn-floating btn-large halfway-fab waves-effect waves-light ' +
+                watchlist.color + ' btn-watchlist"><i class="material-icons">' + watchlist.icon + '</i></a></div>' +
                 '<div class="card-content"><div class="row">' +
-                '<div class="col s10"><p class="flow-text">' + json.Title + '</p></div><div class="col s2 right-align"><p style="padding: 3px 0">' + json.Ratings[0].Value + '</p></div></div>' +
+                '<div class="col s10"><p class="flow-text">' +
+                json.Title + '</p></div><div class="col s2 right-align"><p style="padding: 3px 0">' + json.Ratings[0].Value +
+                '</p></div></div>' +
                 '<div class="row"><div class="col s12"><p class="small">' + moviePlot + '</p></div></div></div></div>');
             if (i === movieIds.length - 1) {
                 setTimeout(function() {
@@ -32,6 +42,20 @@ resizeElements = function(selector){
     $(this).css('height', maxHeight);
   });
 };
+
+$('#movie-tiles').on('click', '.btn-watchlist', function(e) {
+    // e.preventDefault();
+    var method = $(this).data('is-in-watchlist') ? 'DELETE' : 'POST' ;
+    var imdbId = $(this).closest('.movie-tile').attr('id');
+    var url = (($(this).data('is-in-watchlist')) ? '/profile/' : '/movie/') + imdbId;
+    $.ajax({
+        url: url,
+        type: method,
+        success: function(data) {
+            console.log(data);
+        }
+    });
+});
 
 processMovieTiles = (function() {
   imdbIds = [];

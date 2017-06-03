@@ -19,3 +19,6 @@ body {
     background-color: #455a64;
     color: #ffffff;
 }
+.turbolinks-progress-bar {
+    background-color: #f00;
+}

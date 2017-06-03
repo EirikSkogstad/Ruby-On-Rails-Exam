@@ -3,7 +3,10 @@ class MovieController < ApplicationController
 
 
   def index
-    @movie = get_json_from_id params[:imdb]
+    respond_to do |format|
+      format.html { @movie = get_json_from_id(params[:imdb]) }
+      format.json { render :json => get_json_from_id(params[:imdb]).to_json }
+    end
   end
 
   # POST movie/:imdb
@@ -18,13 +21,17 @@ class MovieController < ApplicationController
   end
 
   def get_json_from_id(id)
+    in_watchlist = false
     if Movie.exists?(imdb_id: id)
-      response = Movie.find_by(imdb_id: id)['json']
+      json = Movie.find_by(imdb_id: id)['json']
+      in_watchlist = true
     else
       # Send a HTTP GET with IMDB ID to external movie API and receive the movie in JSON
-      response = HTTP.get('http://www.omdbapi.com/', :params => {i: id, plot: 'full', apikey: 'ca17ed8a'})
+      json = HTTP.get('http://www.omdbapi.com/', :params => {i: id, plot: 'full', apikey: 'ca17ed8a'})
     end
-    JSON.parse(response)
+    response = JSON.parse(json)
+    response['in_watchlist'] = in_watchlist
+    response
   end
 
 end
