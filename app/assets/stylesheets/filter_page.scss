@@ -1,20 +1,24 @@
-.row:nth-child(odd){
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-
-.row:nth-child(even){
+#filter-wrapper{
+  padding-top: 10%;
+  margin: 0 auto;
+  width: 70%;
 }
 
 .btn-genre{
+  line-height: 75px !important;
+  margin: 10px !important;
   font-size: large !important;
-  padding: 30px !important;
-  width: 200px !important;
-  height: 100px !important;
+  width: 150px !important;
+  height: 75px !important;
   text-transform: capitalize !important;
 }
 
 #big-button{
-  left: 35%;
-  width: 400px !important;
+  left: 38% !important;
+  position: relative !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  line-height: 100px !important;
+  height: 100px;
+  width: 300px;
 }
