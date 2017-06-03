@@ -6,6 +6,12 @@
       <p>Please log in to add movie to your watchlist! </p>
       <p> Click <%= link_to 'here', new_user_path %> if you don't have a user yet!</p>
   <% else %>
-      <%= button_to 'Add to watchlist', :method => :post %>
+
+      <% if Watchlist.is_movie_already_in_watchlist(params[:imdb]) %>
+          <p>Movie is already in your watchlist!</p>
+      <% else %>
+          <%= button_to 'Add to watchlist', :method => :post %>
+      <% end %>
+
   <% end %>
 </div>

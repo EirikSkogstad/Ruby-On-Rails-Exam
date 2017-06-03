@@ -6,16 +6,13 @@ class MovieController < ApplicationController
     @movie = get_json_from_id params[:imdb]
   end
 
-  # POST movie/:data
+  # POST movie/:imdb
   def add
     json = get_json_from_id(params[:imdb])
-
-    # TODO check if movies already exists in watchlist.
     imdb_id = json['imdbID']
-    watchlist = Watchlist.new(username: session[:username], imdb_id: imdb_id)
-    movie = Movie.new(imdb_id: imdb_id, json: json.to_json)
-    watchlist.save
-    movie.save
+
+    Watchlist.add_movie_if_not_exists(session[:username], imdb_id)
+    Movie.add_movie_if_not_exists(imdb_id, json)
 
     redirect_to front_page_path
   end
@@ -26,4 +23,6 @@ class MovieController < ApplicationController
     # Parse JSON to object
     JSON.parse(response)
   end
+
+
 end

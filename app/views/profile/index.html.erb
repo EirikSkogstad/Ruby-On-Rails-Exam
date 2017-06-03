@@ -9,7 +9,7 @@
     <% @movie_map.each do |imdb_id, json| %>
         <p><%= json['Title'] %></p>
         <p><%= json['Year'] %></p>
-        <%= link_to 'Remove', delete_path(:imdb_id => imdb_id),controller: 'watchlist', :method => :delete %>
+          <%= link_to 'Remove', delete_path(:imdb_id => imdb_id),controller: 'watchlist', :method => :delete %>
     <% end %>
 
 <% end %>
