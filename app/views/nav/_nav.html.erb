@@ -21,6 +21,9 @@
         <li id="toggle-search">
           <a class="waves-effect waves-light"><i class="material-icons">search</i></a>
         </li>
+        <li>
+          <%= link_to 'Profile', profile_path, {class: 'waves-effect waves-light'} %>
+        </li>
         <% if session[:username].nil? %>
             <li id="login">
               <a class="waves-effect waves-light"><i class="material-icons">person</i></a>
