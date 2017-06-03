@@ -7,7 +7,14 @@ Rails.application.routes.draw do
   get 'profile/index', to: 'profile#index', as: 'profile'
   delete 'profile/:imdb_id', to: 'profile#delete', as: 'delete'
 
-  get 'error_pages/user_not_logged_in', to: 'error_pages#user_not_logged_in', as: 'user_not_logged_in'
+  controller :error_pages do
+    get :user_already_logged_in
+    get :user_not_admin
+    get :user_not_logged_in
+  end
+  # get 'error_pages/user_not_logged_in', to: 'error_pages#user_not_logged_in', as: 'user_not_logged_in'
+  # get 'error_pages/user_not_admin', to: 'error_pages#user_not_admin', as: 'user_not_admin'
+  # get 'error_pages/user_not_admin', to: 'error_pages#user_not_admin', as: 'user_not_admin'
 
   get 'session/logout', to: 'sessions#logout', as: 'logout_session'
   post 'session/create', to: 'sessions#create', as: 'create_session'

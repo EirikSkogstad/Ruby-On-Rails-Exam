@@ -7,6 +7,6 @@ module SessionsHelper
       user = User.find_by(username: username)
       return user.is_admin
     end
-    return 'bad meme'
+    return false
   end
 end
