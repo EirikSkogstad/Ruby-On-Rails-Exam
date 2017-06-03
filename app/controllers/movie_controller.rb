@@ -18,11 +18,13 @@ class MovieController < ApplicationController
   end
 
   def get_json_from_id(id)
-    # Send a HTTP GET with IMDB ID to external movie API and receive the movie in JSON
-    response = HTTP.get('http://www.omdbapi.com/', :params => {i: id, plot: 'full', apikey: 'ca17ed8a'})
-    # Parse JSON to object
+    if Movie.exists?(imdb_id: id)
+      response = Movie.find_by(imdb_id: id)['json']
+    else
+      # Send a HTTP GET with IMDB ID to external movie API and receive the movie in JSON
+      response = HTTP.get('http://www.omdbapi.com/', :params => {i: id, plot: 'full', apikey: 'ca17ed8a'})
+    end
     JSON.parse(response)
   end
-
 
 end
