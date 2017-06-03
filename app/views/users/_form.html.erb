@@ -11,28 +11,32 @@
         </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-    </div>
+    <div class="users-container">
 
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
-    </div>
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </div>
 
-    <div class="field">
-      <%= f.check_box :is_admin %>
-      <%= f.label :is_admin %>
-    </div>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
 
-    <br><br>
-    <div class="actions">
-      <%= f.submit %>
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+
+      <div class="field">
+        <%= f.check_box :is_admin %>
+        <%= f.label :is_admin %>
+      </div>
+
+      <br><br>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
     </div>
 <% end %>
