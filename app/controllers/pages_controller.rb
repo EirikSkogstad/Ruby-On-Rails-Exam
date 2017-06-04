@@ -1,9 +1,14 @@
 class PagesController < ApplicationController
 
-  # http://stackoverflow.com/questions/4479233/static-pages-in-ruby-on-rails?rq=1
-  # Might not be the correct way to do things. Depends on what a "static" page implies. It's tidy though
-
   def front_page
+    filter_string = params[:filters]
+    if filter_string.nil?
+      # Render normally
+    else
+      @filters = []
+      @filters = filter_string.split(',')
+    end
+
   end
 
   def filter_page
