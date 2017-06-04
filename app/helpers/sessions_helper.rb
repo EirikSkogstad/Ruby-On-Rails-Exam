@@ -1,6 +1,5 @@
 module SessionsHelper
   def is_user_admin
-
     username = session[:username]
     unless username.nil?
       puts username

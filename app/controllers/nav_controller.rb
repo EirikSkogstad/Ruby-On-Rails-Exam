@@ -1,2 +1,0 @@
-class NavController < ApplicationController
-end

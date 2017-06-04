@@ -1,17 +1,4 @@
 <div id="movie-tiles" class="row">
-
-
-  <!-- Just delete this, just an example on how to get out filters -->
-  <% unless @filters.nil? %>
-      <p>size<%= @filters.size %></p>
-      <% @filters.each do |filter| %>
-        <p><%=filter%></p>
-      <% end %>
-  <% end %>
-
-
-
-  
   <% movie_ids = []
      index = 1
      random_movies(12).each do |movie|

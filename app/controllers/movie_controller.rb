@@ -1,7 +1,6 @@
 class MovieController < ApplicationController
   require 'http'
 
-
   def index
     respond_to do |format|
       format.html { @movie = get_json_from_id(params[:imdb]) }

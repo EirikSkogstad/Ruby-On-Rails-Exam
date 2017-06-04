@@ -8,9 +8,9 @@ class PagesController < ApplicationController
       @filters = []
       @filters = filter_string.split(',')
     end
-
   end
 
   def filter_page
   end
+
 end

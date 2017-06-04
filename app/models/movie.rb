@@ -4,7 +4,6 @@ class Movie < ApplicationRecord
   validates :json, uniqueness: true
   validates :json, presence: true
 
-
   class << self
     def add_movie_if_not_exists(imdb_id, json)
       unless Movie.exists?(imdb_id: imdb_id)
