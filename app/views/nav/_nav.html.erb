@@ -27,6 +27,11 @@
         <li>
           <%= link_to 'Filter-page', filter_page_path, {class: 'waves-effect waves-light'} %>
         </li>
+        <% if is_user_admin %>
+            <li>
+              <%= link_to 'Show-Users', users_path, {class: 'waves-effect waves-light'} %>
+            </li>
+        <% end %>
         <% if session[:username].nil? %>
             <li id="login">
               <a class="waves-effect waves-light"><i class="material-icons">person</i></a>

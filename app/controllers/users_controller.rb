@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       if @user.is_admin.nil?
         @user.is_admin = false
       end
-      
+
       respond_to do |format|
         if @user.save
           format.html {redirect_to @user, notice: 'User was successfully created.'}
