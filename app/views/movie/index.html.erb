@@ -8,7 +8,6 @@
           <p id="description"> Click <%= link_to 'here', new_user_path %> if you don't have a user yet!</p>
       <% else %>
           <% if @movie['in_watchlist'] %>
-              <!--Not deleting at the moment-->
               <%= button_to '-', delete_movie_path,  method: :delete, params: {imdb: @movie["imdbID"]}, class: 'btn-floating btn-large waves-effect waves-light add-remove-button red' %>
           <%else%>
               <%= button_to '+', {:method => :post}, {class: 'btn-floating btn-large waves-effect waves-light add-remove-button green'} %>
