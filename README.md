@@ -63,7 +63,10 @@ text here
 ### Name: Andreas Waadeland | github: xIntern
 text here
 ### Name: Eirik Skogstad | github: EirikSkogstad 
-text here
+Worked on login system and database entities. 
+Implemented watchlist on Profile-page and added design for that page.
+Added ability to remove and add movies to Watchlist, and cache in database.
+Fixed redirection for pages that only admin should be able to access.
 
 ## Libraries, frameworks and API's:
 - [MaterializeCSS](http://materializecss.com/)
