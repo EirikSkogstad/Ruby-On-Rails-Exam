@@ -48,7 +48,7 @@ From the frontpage you are presented with random highly rated movies as suggesti
 Here the user will see the movie they selected with more details than the front page presented. The user has the option to add it to its watchlist or be prompted to login for that functionality.
 
 ### Filter page:
-From this page the user can toggle the categories he/she wants to see. A filter will include all of these and show the movies that match the criteria. Note that it matches the movies with ALL the filters and not if the movie contains one of the categories.
+From this page the user can toggle the categories he/she wants to see. A filter will include all of these and show the movies that match the criteria. Note that it matches the movies with ANY of the filters and not all of the categories.
 
 ### Profile page:
 Only available if the user is logged in(whereas users not logged in will be redirected). Here the user can preview its watchlist and choose to whether preview the movies or remove them.
