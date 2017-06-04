@@ -6,7 +6,7 @@
 [Heroku deployment](https://rmdb1337.herokuapp.com/)
 
 ## How to run this application on your local machine:
-**Prerequisites: Functioning Docker, web browser, internet connection.** 
+**Prerequisites: Docker, Google Chrome (Firefox has a bug with login button when running locally, other browsers were not used in development).** 
 
 **Admin username: "rubyonrails", password "rubyonrails"**
 
