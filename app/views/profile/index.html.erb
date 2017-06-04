@@ -1,33 +1,22 @@
-<h1 id="profile-header">My profile</h1>
-
-<br>
-
 <div class="watchlist">
   <ul class="collection with-header z-depth-4">
 
-    <li class="collection-header" id="watchlist-header">
+    <li class="collection-header blue-grey darken-3" id="watchlist-header">
       <% if @movie_map.empty? %>
           <h2>No movies were found.</h2>
       <% else %>
           <h2>Watchlist</h2>
       <% end %>
-
     </li>
+
     <% @movie_map.each do |imdb_id, json| %>
-        <li class="collection-item avatar">
-
+        <li class="collection-item avatar blue-grey darken-3">
           <%= image_tag json['Poster'], {class: 'circle'} %>
-          <%= link_to json['Title'] + ' (' + json['Year'] + ')',
-                      get_movie_path(imdb_id),
-                      class: 'watchlist-item-title' %>
-          <p class="watchlist-item-small">Runtime: <%= json['Runtime'] %> (done at: <%= (Time.now + json['Runtime'].to_i * 60).strftime('%R') %>)</p>
+          <%= link_to json['Title'] + ' (' + json['Year'] + ')', get_movie_path(imdb_id), class: 'watchlist-item-title' %>
+          <p class="watchlist-item-small blue-grey darken-3">Runtime: <%= json['Runtime'] %> (done at: <%= (Time.now + json['Runtime'].to_i * 60).strftime('%R') %>)</p>
 
-          <div class="secondary-content">
-            <%= link_to 'Remove',
-                        delete_path(:imdb_id => imdb_id),
-                        controller: 'watchlist',
-                        :method => :delete,
-                        class: 'watchlist-item-removelink' %>
+          <div class="secondary-content blue-grey darken-3">
+            <%= link_to 'Remove', delete_path(:imdb_id => imdb_id), controller: 'watchlist', :method => :delete, class: 'watchlist-item-removelink' %>
           </div>
         </li>
     <% end %>
