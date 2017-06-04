@@ -5,6 +5,9 @@ module SessionsHelper
     unless username.nil?
       puts username
       user = User.find_by(username: username)
+      if user.nil?
+        return false
+      end
       return user.is_admin
     end
     return false
