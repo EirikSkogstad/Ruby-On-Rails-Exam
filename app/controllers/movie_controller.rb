@@ -23,6 +23,18 @@ class MovieController < ApplicationController
     end
   end
 
+  def delete
+    imdb_id = params[:imdb]
+    respond_to do |format|
+      if Watchlist.where(imdb_id: imdb_id, username: session[:username]).take.destroy!
+        format.html { redirect_to front_page_path }
+        format.json { render :json => {deleted: true} }
+      else
+        format.json { render :json => {deleted: false} }
+      end
+    end
+  end
+
   def get_json_from_id(id)
     if Movie.exists?(imdb_id: id)
       json = Movie.find_by(imdb_id: id)['json']

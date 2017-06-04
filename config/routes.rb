@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # get 'movie/index'
   get 'movie/:imdb' => 'movie#index', as: 'get_movie'
   post 'movie/:imdb' => 'movie#add'
+  delete 'movie/:imdb' => 'movie#delete', as: 'delete_movie'
 
   get 'profile/index', to: 'profile#index', as: 'profile'
   delete 'profile/:imdb_id', to: 'profile#delete', as: 'delete'
