@@ -28,10 +28,12 @@
         <%= f.password_field :password_confirmation %>
       </div>
 
-      <div class="field">
-        <%= f.check_box :is_admin %>
-        <%= f.label :is_admin %>
-      </div>
+      <% if is_user_admin %>
+          <div class="field">
+            <%= f.check_box :is_admin %>
+            <%= f.label :is_admin %>
+          </div>
+      <% end %>
 
       <br><br>
       <div class="actions">
