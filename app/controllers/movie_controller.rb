@@ -3,8 +3,29 @@ class MovieController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { @movie = get_json_from_id(params[:imdb]) }
-      format.json { render :json => get_json_from_id(params[:imdb]).to_json }
+      if params[:imdb].nil?
+        format.json { render :json => Movie.all }
+      else
+        format.html { @movie = get_json_from_id(params[:imdb]) }
+        format.json { render :json => get_json_from_id(params[:imdb]).to_json }
+      end
+    end
+  end
+
+  def search
+    filters = params[:filters].split(',')
+    found_movies = []
+    Movie.all.each do |movie|
+      json = JSON.parse(movie['json'])
+      genres = json['Genre'].split(',')
+      genres.each do |genre|
+        filters.each do |filter|
+          found_movies.push(movie)
+        end
+      end
+    end
+    respond_to do |format|
+      format.json { render :json => found_movies}
     end
   end
 
