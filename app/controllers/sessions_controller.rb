@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
     if user and user.authenticate(params[:password])
       session[:username] = user.username
 
-      redirect_to front_page_path
+      redirect_back(fallback_location: front_page_path)
     else
       flash[:notice] = 'Wrong username or password. Please try again'
-      redirect_to front_page_path
+      redirect_back(fallback_location: front_page_path)
     end
   end
 

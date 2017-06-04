@@ -48,6 +48,7 @@ class UsersController < ApplicationController
           format.json {render json: @user.errors, status: :unprocessable_entity}
         end
       end
+      session[:username] = @user.username
       return
     end
 
