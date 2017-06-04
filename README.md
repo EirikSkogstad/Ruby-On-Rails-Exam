@@ -18,11 +18,11 @@ Run these commands:
 
 Open a new terminal:
 
-`docker-compose web run rake db:create`
+`docker-compose run web rake db:create`
 
-`docker-compose web run rake db:migrate`
+`docker-compose run web rake db:migrate`
 
-`docker-compose web run rake db:seed`
+`docker-compose run web rake db:seed`
 
 `open webpage on:`[localhost:3000](http://localhost:3000)
 
