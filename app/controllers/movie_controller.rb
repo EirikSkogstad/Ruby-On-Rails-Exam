@@ -19,9 +19,9 @@ class MovieController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to front_page_path }
-      format.json { render :json => {saved: saved_watchlist} }
+      format.json { render :json => {added: saved_watchlist} }
     end
-   end
+  end
 
   def get_json_from_id(id)
     if Movie.exists?(imdb_id: id)

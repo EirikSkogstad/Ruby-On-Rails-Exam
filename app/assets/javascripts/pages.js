@@ -1,4 +1,5 @@
-
+var $loader = '<div class="loader"><div class="preloader-wrapper loader-btn-watchlist active center-align"><div class="spinner-layer spinner-blue"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div><div class="spinner-layer spinner-red"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div><div class="spinner-layer spinner-yellow"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div><div class="spinner-layer spinner-green"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div></div>';
+// $('body').append($loader.find('#loader .preloader-wrapper').toggleClass('xxl loader-btn-watchlist'));
 
 getMovieDetails = function(movieIds) {
     $.each(movieIds, function(i, id) {
@@ -45,17 +46,42 @@ resizeElements = function(selector){
 
 $('#movie-tiles').on('click', '.btn-watchlist', function(e) {
     // e.preventDefault();
-    var method = $(this).data('is-in-watchlist') ? 'DELETE' : 'POST' ;
-    var imdbId = $(this).closest('.movie-tile').attr('id');
-    var url = (($(this).data('is-in-watchlist')) ? '/profile/' : '/movie/') + imdbId;
+    $btn = $(this);
+    var inWatch = $btn.data('is-in-watchlist');
+    var method = inWatch ? 'DELETE' : 'POST' ;
+    var imdbId = $btn.closest('.movie-tile').attr('id');
+    var url = ((inWatch) ? '/profile/' : '/movie/') + imdbId;
     var token = $('[name="authenticity_token"]').val();
+    $btn.before($loader);
+    $btn.remove();
     $.ajax({
         url: url,
         type: method,
         data: {authenticity_token: token},
         dataType: 'json',
         success: function(data) {
-            console.log(data);
+            var watchlist;
+            if (data.added === true) {
+                watchlist = {
+                    exist: true,
+                    title: 'Remove from watchlist',
+                    color: 'red',
+                    icon: 'remove'
+                };
+            }
+            if (data.deleted === true) {
+                watchlist = {
+                    exist: false,
+                    title: 'Add to watchlist',
+                    color: 'green',
+                    icon: 'add'
+                };
+            }
+            var newBtn = '<a data-is-in-watchlist="' + watchlist.exist + '" title="' +
+                watchlist.title + '" class="btn-floating btn-large halfway-fab waves-effect waves-light ' +
+                watchlist.color + ' btn-watchlist"><i class="material-icons">' + watchlist.icon + '</i></a>';
+            // console.log('#' + )
+            $('#' + imdbId + ' .loader').replaceWith(newBtn);
         }
     });
 });

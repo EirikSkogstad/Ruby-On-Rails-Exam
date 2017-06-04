@@ -22,3 +22,25 @@ body {
 .turbolinks-progress-bar {
     background-color: #f00;
 }
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1001;
+    right: 24px;
+    bottom: -28px;
+}
+.preloader-wrapper.loader-btn-watchlist {
+    width: 56px;
+    height: 56px;
+}
+.preloader-wrapper.xl {
+    width: 128px;
+    height: 128px;
+}
+.preloader-wrapper.xxl {
+    width: 256px;
+    height: 256px;
+}
