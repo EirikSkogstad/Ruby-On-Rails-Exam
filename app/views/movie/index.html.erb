@@ -9,7 +9,8 @@
       <% else %>
           <% if @movie['in_watchlist'] %>
               <!--Not deleting at the moment-->
-              <%= button_to '-', {:method => :delete}, {class: 'btn-floating btn-large waves-effect waves-light add-remove-button red'} %>
+              <%= button_to '-', delete_movie_path,  method: :delete, params: {imdb: @movie["imdbID"]}, class: 'btn-floating btn-large waves-effect waves-light add-remove-button red' %>
+
           <%else%>
               <%= button_to '+', {:method => :post}, {class: 'btn-floating btn-large waves-effect waves-light add-remove-button green'} %>
           <% end %>
