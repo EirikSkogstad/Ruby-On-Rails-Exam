@@ -21,7 +21,7 @@ class MovieController < ApplicationController
       genres.each do |genre|
         filters.each do |filter|
           if genre.strip.downcase == filter.strip.downcase
-            found_movies.push(movie)
+            found_movies.push(json)
           end
         end
       end

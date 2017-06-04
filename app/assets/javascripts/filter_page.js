@@ -25,11 +25,41 @@ $('.btn-genre').click(function() {
 //     }
 // });
 
+$('#slide-filters').click(function() {
+    $('#filter-wrapper').slideToggle();
+});
+
 $('#big-button').click(function() {
     $.ajax({
         url: '/search_genres/',
         type: 'GET',
         dataType: 'json',
-        data: {filters: filters.join(',')}
+        data: {filters: filters.join(',')},
+        success: function(json) {
+            $('#title').click();
+            var htmlArr = [];
+            $.each(json, function(i, movie) {
+                var plot = (movie.Plot.length > 150) ? movie.Plot.slice(0, 150) + '...' : movie.Plot;
+                if ((i + 1) % 6 == 1) {
+                    htmlArr.push('<div class="row">');
+                }
+                htmlArr.push('<div class="col s2">' +
+                    '<div class="card">' +
+                        '<div class="card-image">' +
+                            '<a href="/movie/' + movie.imdbID + '"><img src="' + movie.Poster + '"></a>' +
+                        '</div>' +
+                        '<div class="card-content">' +
+                            '<h4>' + movie.Title + '</h4>' +
+                            '<p>' + plot + '</p>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>');
+                if ((i + 1) % 6 == 0) {
+                    htmlArr.push('</div>');
+                }
+                console.log(i);
+            });
+            $('#search-result').html('<div class="row">' + htmlArr.join('') + '</div>');
+        }
     });
 });
