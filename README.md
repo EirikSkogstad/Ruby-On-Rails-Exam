@@ -56,10 +56,14 @@ Only available to admins. URL had to be typed in manually, users that are not ad
 ### Security: 
 For handling whether or not a user is logged in we used sessions handled by rails. Passwords are stored using bcrypt and on successful login the user will be handed a session-token and on logout the token will be set to nil(null). There are many security-aspects that we have not accounted for, but we are not storing any sensitive data and feel the steps we have taken will suffice for this project. 
 
+### Testing: 
+We wanted to implement integration-testing for our web application, but that was easier said than done. With how Ruby on Rails handles tests and how Docker affects the project we didnt manage to run any tests. With a lot of configuration we might have been able to do it. We did not however feel confident enough that the amount of time to set up the testing enviroment would be worth the end result(or that we would be able to do it in a reasonable amount of time), so we did the testing manually. This is not beneficial, and our priority would have shifted if the product where to have a longer lifespan than an exam. 
+
 ## Contribution to project:
+Overall we have been working on the parts where we best can utilize our individual skills. We have been trying to keep an equal amount of workload throughout the project and in the end nobody feels they got the short end of the stick(although some members of the group might have contributed more). 
 
 ### Name: Gard Opsahl Skaare | github: Opsgar15
-text here
+I have mostly contributed with setting up the project and its structure, developing the idea and its implementation, adding html/css elements, writing this document and overall been helping the group with minor tasks where needed. 
 ### Name: Andreas Waadeland | github: xIntern
 text here
 ### Name: Eirik Skogstad | github: EirikSkogstad 
