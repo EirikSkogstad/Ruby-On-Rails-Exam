@@ -20,7 +20,9 @@ class MovieController < ApplicationController
       genres = json['Genre'].split(',')
       genres.each do |genre|
         filters.each do |filter|
-          found_movies.push(movie)
+          if genre.strip.downcase == filter.strip.downcase
+            found_movies.push(movie)
+          end
         end
       end
     end
