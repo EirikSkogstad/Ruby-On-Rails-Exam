@@ -31,7 +31,7 @@ Shutting down:
 `docker-compose down`
 
 ## Description of the project:
-Our vision was to create a webpage where you can go if you are not sure what movie to watch. You can browse highly rated movies, or search for the details yourself. If you are a user and see a movie you are interested in, you can add it to the watchlist for later preview. 
+Our vision was to create a webpage where you can go if you are not sure what movie to watch. You can browse highly rated movies, search with filters or search for a specific movie yourself. If you are a user and see a movie you are interested in, you can add it to the watchlist for later preview. 
 
 The way we solved retrieving moviedata is to use an external API called [Open Movie DataBase](https://www.omdbapi.com/), which provides data from imdb in JSON-format. In order to not overload this API, we've implemented caching of movies in the database where we store the top 250 rated imdb movies. 
 
@@ -46,6 +46,9 @@ From the frontpage you are presented with random highly rated movies as suggesti
 
 ### Movie page:
 Here the user will see the movie they selected with more details than the front page presented. The user has the option to add it to its watchlist or be prompted to login for that functionality.
+
+### Filter page:
+From this page the user can toggle the categories he/she wants to see. A filter will include all of these and show the movies that match the criteria. Note that it matches the movies with ALL the filters and not if the movie contains one of the categories.
 
 ### Profile page:
 Only available if the user is logged in(whereas users not logged in will be redirected). Here the user can preview its watchlist and choose to whether preview the movies or remove them.
