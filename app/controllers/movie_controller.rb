@@ -21,16 +21,18 @@ class MovieController < ApplicationController
   end
 
   def get_json_from_id(id)
-    in_watchlist = false
     if Movie.exists?(imdb_id: id)
       json = Movie.find_by(imdb_id: id)['json']
-      in_watchlist = true
+      was_in_database = true
     else
       # Send a HTTP GET with IMDB ID to external movie API and receive the movie in JSON
       json = HTTP.get('http://www.omdbapi.com/', :params => {i: id, plot: 'full', apikey: 'ca17ed8a'})
+      Movie.new(imdb_id: id, json: json).save
+      was_in_database = false
     end
     response = JSON.parse(json)
-    response['in_watchlist'] = in_watchlist
+    response['in_watchlist'] = Watchlist.is_movie_already_in_watchlist id
+    response['movie_was_in_db'] = was_in_database
     response
   end
 
