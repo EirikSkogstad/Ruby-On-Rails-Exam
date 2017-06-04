@@ -1,27 +1,35 @@
 <h1 id="profile-header">My profile</h1>
 
 <br>
-<% if @movie_map.empty? %>
-    <p>No movies were found.</p>
-<% else %>
 
-    <div class="watchlist">
-      <ul class="collection with-header z-depth-4">
-        <li class="collection-header" id="watchlist-header"><h2>Watchlist</h2></li>
-        <% @movie_map.each do |imdb_id, json| %>
-            <li class="collection-item avatar">
 
-              <%= image_tag json['Poster'], {class: 'circle'} %>
-              <span class="watchlist-item-title"><%= json['Title'] %></span>
-              <p class="watchlist-item-year"><%= json['Year'] %></p>
+<div class="watchlist">
+  <ul class="collection with-header z-depth-4">
 
-              <div class="secondary-content">
-                  <%= link_to 'Remove', delete_path(:imdb_id => imdb_id), controller: 'watchlist', :method => :delete, class: 'watchlist-item-removelink'
-                               %>
-              </div>
-            </li>
-        <% end %>
+    <li class="collection-header" id="watchlist-header">
+      <% if @movie_map.empty? %>
+          <h2>No movies were found.</h2>
+      <% else %>
+          <h2>Watchlist</h2>
+      <% end %>
+
+    </li>
+    <% @movie_map.each do |imdb_id, json| %>
+        <li class="collection-item avatar">
+
+          <%= image_tag json['Poster'], {class: 'circle'} %>
+          <span class="watchlist-item-title"><%= json['Title'] %></span>
+          <p class="watchlist-item-year"><%= json['Year'] %></p>
+
+          <div class="secondary-content">
+            <%= link_to 'Remove',
+                        delete_path(:imdb_id => imdb_id),
+                        controller: 'watchlist',
+                        :method => :delete,
+                        class: 'watchlist-item-removelink' %>
+          </div>
         </li>
-      </ul>
-    </div>
-<% end %>
+    <% end %>
+    </li>
+  </ul>
+</div>

@@ -48,6 +48,7 @@ class UsersController < ApplicationController
           format.json {render json: @user.errors, status: :unprocessable_entity}
         end
       end
+      return
     end
 
     if is_user_admin
@@ -61,6 +62,7 @@ class UsersController < ApplicationController
           format.json {render json: @user.errors, status: :unprocessable_entity}
         end
       end
+      return
     else
       redirect_to user_already_logged_in_path
     end
