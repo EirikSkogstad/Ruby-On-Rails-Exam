@@ -1,17 +1,11 @@
-<h1 id="profile-header">My profile</h1>
-
-<br>
-
 <div class="watchlist">
   <ul class="collection with-header z-depth-4">
-
     <li class="collection-header" id="watchlist-header">
       <% if @movie_map.empty? %>
           <h2>No movies were found.</h2>
       <% else %>
           <h2>Watchlist</h2>
       <% end %>
-
     </li>
     <% @movie_map.each do |imdb_id, json| %>
         <li class="collection-item avatar blue-grey darken-3">
