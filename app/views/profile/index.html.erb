@@ -18,8 +18,10 @@
         <li class="collection-item avatar">
 
           <%= image_tag json['Poster'], {class: 'circle'} %>
-          <span class="watchlist-item-title"><%= json['Title'] %></span>
-          <p class="watchlist-item-year"><%= json['Year'] %></p>
+          <%= link_to json['Title'] + ' (' + json['Year'] + ')',
+                      get_movie_path(imdb_id),
+                      class: 'watchlist-item-title' %>
+          <p class="watchlist-item-small">Runtime: <%= json['Runtime'] %> (done at: <%= (Time.now + json['Runtime'].to_i * 60).strftime('%R') %>)</p>
 
           <div class="secondary-content">
             <%= link_to 'Remove',

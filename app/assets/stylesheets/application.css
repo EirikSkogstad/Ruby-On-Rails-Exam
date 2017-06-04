@@ -22,7 +22,6 @@ body {
 .turbolinks-progress-bar {
     background-color: #f00;
 }
-
 .loader {
     display: flex;
     align-items: center;

@@ -5,23 +5,20 @@ $watchlist-text-color: #202020;
 }
 
 .watchlist {
-  background: blue;
   width: 85%;
   margin: auto;
+  color: $watchlist-text-color;
 
   #watchlist-header {
-    color: $watchlist-text-color;
     text-align: center;
     border-bottom: solid 1px #808080;
   }
 
   .watchlist-item-title {
-    color: $watchlist-text-color;
     font-size: 20px;
   }
 
-  .watchlist-item-year {
-    color: $watchlist-text-color;
+  .watchlist-item-small {
     font-size: 16px;
   }
   .watchlist-item-removelink {
