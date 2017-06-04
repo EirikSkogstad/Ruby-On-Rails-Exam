@@ -20,7 +20,7 @@
           <%= link_to json['Title'] + ' (' + json['Year'] + ')',
                       get_movie_path(imdb_id),
                       class: 'watchlist-item-title' %>
-          <p class="watchlist-item-small">Runtime: <%= json['Runtime'] %> (done at: <%= (Time.now + json['Runtime'].to_i * 60).strftime('%R') %>)</p>
+          <p class="watchlist-item-small">Runtime: <%= json['Runtime'] %> (done at: <%= (Time.now.in_time_zone('Rome') + json['Runtime'].to_i.minutes).strftime('%R') %>)</p>
 
           <div class="secondary-content">
             <%= link_to 'Remove',
