@@ -27,7 +27,7 @@ class MovieController < ApplicationController
       end
     end
     respond_to do |format|
-      format.json { render :json => found_movies}
+      format.json { render :json => found_movies.uniq}
     end
   end
 
