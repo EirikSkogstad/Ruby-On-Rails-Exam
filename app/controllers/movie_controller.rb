@@ -33,6 +33,9 @@ class MovieController < ApplicationController
 
   # POST movie/:imdb
   def add
+    if session[:username].nil?
+      render :nothing => true, :status => 401
+    end
     json = get_json_from_id(params[:imdb])
     imdb_id = json['imdbID']
 
@@ -46,6 +49,9 @@ class MovieController < ApplicationController
   end
 
   def delete
+    if session[:username].nil?
+      render :nothing => true, :status => 401
+    end
     imdb_id = params[:imdb]
     respond_to do |format|
       if Watchlist.where(imdb_id: imdb_id, username: session[:username]).take.destroy!
