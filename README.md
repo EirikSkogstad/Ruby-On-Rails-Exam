@@ -2,16 +2,22 @@
 
 ## Relevant Links: 
 [Github.com/EirikSkogstad/Ruby-On-Rails-Exam](https://github.com/EirikSkogstad/Ruby-On-Rails-Exam)
+
 [Heroku deployment](https://rmdb1337.herokuapp.com/)
 
 ## How to run this application on your local machine:
 Run these commands:
+
 `docker-compose build`
+
 `docker-compose up`
 
 Open a new terminal:
+
 `docker-compose web run rake db:create`
+
 `docker-compose web run rake db:migrate`
+
 `docker-compose web run rake db:seed`
 
 ## Description of project:
