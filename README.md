@@ -68,7 +68,7 @@ Overall we have been working on the parts where we best can utilize our individu
 ### Name: Gard Opsahl Skaare | github: Opsgar15
 I have mostly contributed with setting up the project and its structure, developing the idea and its implementation, adding html/css elements, writing this document and overall been helping the group with minor tasks where needed. 
 ### Name: Andreas Waadeland | github: xIntern
-OMDB API communication, AJAX, Front page design and logic, search for movies in front page and filter page logic
+OMDB API communication, AJAX, JavaScript, Front page design and logic, search for movies in front page and filter page logic
 ### Name: Eirik Skogstad | github: EirikSkogstad 
 Worked on login system and database entities. 
 Implemented watchlist on Profile-page and added design for that page.

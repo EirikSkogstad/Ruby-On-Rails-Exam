@@ -45,7 +45,6 @@ resizeElements = function(selector){
 };
 
 $('#movie-tiles').on('click', '.btn-watchlist', function(e) {
-    // e.preventDefault();
     $btn = $(this);
     var inWatch = $btn.data('is-in-watchlist');
     var method = inWatch ? 'DELETE' : 'POST' ;
@@ -59,6 +58,11 @@ $('#movie-tiles').on('click', '.btn-watchlist', function(e) {
         type: method,
         data: {authenticity_token: token},
         dataType: 'json',
+        error: function(x) {
+            if (x.status === 401) {
+                window.location= '/user_not_logged_in';
+            }
+        },
         success: function(data) {
             var watchlist;
             if (data.added === true) {
@@ -80,7 +84,6 @@ $('#movie-tiles').on('click', '.btn-watchlist', function(e) {
             var newBtn = '<a data-is-in-watchlist="' + watchlist.exist + '" title="' +
                 watchlist.title + '" class="btn-floating btn-large halfway-fab waves-effect waves-light ' +
                 watchlist.color + ' btn-watchlist"><i class="material-icons">' + watchlist.icon + '</i></a>';
-            // console.log('#' + )
             $('#' + imdbId + ' .loader').replaceWith(newBtn);
         }
     });

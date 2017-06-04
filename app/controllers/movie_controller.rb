@@ -35,6 +35,7 @@ class MovieController < ApplicationController
   def add
     if session[:username].nil?
       render :nothing => true, :status => 401
+      return
     end
     json = get_json_from_id(params[:imdb])
     imdb_id = json['imdbID']
@@ -51,6 +52,7 @@ class MovieController < ApplicationController
   def delete
     if session[:username].nil?
       render :nothing => true, :status => 401
+      return
     end
     imdb_id = params[:imdb]
     respond_to do |format|
