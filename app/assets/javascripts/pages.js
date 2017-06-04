@@ -53,6 +53,7 @@ $('#movie-tiles').on('click', '.btn-watchlist', function(e) {
         url: url,
         type: method,
         data: {authenticity_token: token},
+        dataType: 'json',
         success: function(data) {
             console.log(data);
         }

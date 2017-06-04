@@ -14,11 +14,14 @@ class MovieController < ApplicationController
     json = get_json_from_id(params[:imdb])
     imdb_id = json['imdbID']
 
-    Watchlist.add_movie_if_not_exists(session[:username], imdb_id)
+    saved_watchlist = Watchlist.add_movie_if_not_exists(session[:username], imdb_id)
     Movie.add_movie_if_not_exists(imdb_id, json)
 
-    redirect_to front_page_path
-  end
+    respond_to do |format|
+      format.html { redirect_to front_page_path }
+      format.json { render :json => {saved: saved_watchlist} }
+    end
+   end
 
   def get_json_from_id(id)
     if Movie.exists?(imdb_id: id)
