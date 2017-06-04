@@ -1,24 +1,29 @@
 #filter-wrapper{
   padding-top: 10%;
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
+}
+
+#title{
+  text-align: center;
 }
 
 .btn-genre{
   line-height: 75px !important;
-  margin: 10px !important;
+  margin-bottom: 10px !important;
   font-size: large !important;
-  width: 150px !important;
-  height: 75px !important;
+  width: 100% !important;
+  height: 100% !important;
   text-transform: capitalize !important;
 }
 
+
 #big-button{
-  left: 38% !important;
-  position: relative !important;
-  text-align: center !important;
-  margin: 0 auto !important;
-  line-height: 100px !important;
-  height: 100px;
-  width: 300px;
+  font-size: 200%;
+  position: relative;
+  text-align: center;
+  line-height: 100px;
+  text-transform: capitalize;
+  height: 100%;
+  width: 100%;
 }
